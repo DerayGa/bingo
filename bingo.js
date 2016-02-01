@@ -249,7 +249,10 @@ function createNewBingoCard() {
 	cardTitle.className = 'cardTitleInput';
 
 	cardTitle.onfocus = function(){
-		this.setSelectionRange(0, 4);
+		try{
+			this.setSelectionRange(0, 4);
+		}catch(e){
+		}
 	}
 	cardTitle.onblur = function(){
 		window.scrollTo(0,0);
@@ -279,7 +282,11 @@ function createNewBingoCard() {
 	cardContainer.appendChild(delButton);
 
 	cardTitle.focus();
-	cardTitle.setSelectionRange(0, 4);
+	
+	try{
+		cardTitle.setSelectionRange(0, 4);
+	}catch(e){
+	}
 }
 
 function addNumber(value){
@@ -417,7 +424,7 @@ function saveCardToLocal(){
 	//alert("Save " + cardsStr);
 }
 
-function readCardsFromCookie(){
+function readCardsFromLocal(){
 	var cardsStr = getData("CARDS");
 	//alert("Load " + cardsStr);
 
@@ -446,7 +453,7 @@ function padLeft(str, len) {
     }
 }
 //---------------------------------------------------
-function setData(key, vaue) {
+function setData(key, value) {
 	localStorage.setItem(key, value);
 }
 
