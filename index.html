@@ -2,17 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<link type="text/css" rel="stylesheet" href="bingo.css"/>		
+	<title>賓果對獎</title>
+	<link type="text/css" rel="stylesheet" href="bingo.css"/>
 	<script type="text/javascript" src="bingo.js"></script>
-	<meta name="viewport" id="viewport" content="width=490, height=device-height, minimum-scale=0.1, maximum-scale=1.0, user-scalable=0" 
+	<meta name="viewport" id="viewport" content="width=490, height=device-height, minimum-scale=0.1, maximum-scale=1.0, user-scalable=0"
 </head>
 <body>
 
 <div id='root'>
-	<input type='button' class = 'delAllButton'value='刪除所有卡片' onclick='clearCard()'></input>
-	<input type='button' class = 'okButton' value='新增卡片' onclick='addCard()'></input>
-
-	<br>
+	<button class = 'okButton' onclick='addCard()'>新增卡片</button>
+	<button class = 'delAllButton' onclick='clearCard()'>刪除所有卡片</button>
 	<hr>
 </div>
 <div id='home'></div>
@@ -22,11 +21,7 @@
 homeDiv = document.getElementById('home');
 rootDiv = document.getElementById('root');
 
-window.onbeforeunload = function(){
-	document.documentElement.scrollTop  = 0;
-    document.body.scrollTop  = 0;
-}
-window.onload = function(){
+window.onbeforeunload = window.onload = function(){
 	document.documentElement.scrollTop  = 0;
     document.body.scrollTop  = 0;
 }
@@ -37,7 +32,7 @@ var cards = [];
 
 function loadCard(){
 	readCardsFromCookie();
-	
+
 	if(cards.length > 0){
 		createBingoBall();
 		createBingoCard();
@@ -47,15 +42,14 @@ function loadCard(){
 }
 
 function saveCard(){
-	saveCardsToCookie();
+	saveCardToLocal();
 }
 
 function clearCard(){
 
 	var answer = confirm ('吃飽稱著 ?');
 	if (answer){
-		setCookie("CARDS", "");
-		setCookie("CARDS2", "");
+		setData("CARDS", "");
 
 		location.reload();
 	}
