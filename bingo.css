@@ -2,15 +2,15 @@ body{
 	font-family:arial,sans-serif;x
 }
 
-.bingoBtn{     
-	color:black;   
+.bingoBtn{
+	color:black;
 	margin: 0px;
 	width : 45px;
 	height: 45px;
 	background-color: white;
 	border:1px solid gray;
 }
-.bingoBtn.on{        
+.bingoBtn.on{
 	color:white;
 	background-color: #666;
 }
@@ -35,7 +35,7 @@ body{
 	width: 221px;
 	height:25px;
 	font-size:20px;
-	color:black;	
+	color:black;
 	text-align:center;
 	border-width: 2px;
 }
@@ -158,7 +158,7 @@ body{
 	height:20px;
 	border-width: 0px;
 	background-color:#f08080;
-	
+
 }
 
 .okButton{
@@ -172,4 +172,7 @@ body{
 	height:25px;
 	background-color:#f08080;
 	font-size:12px;
+	position:absolute;
+	top:20px;
+	right: 5px;
 }
